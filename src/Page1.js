@@ -17,10 +17,7 @@ function Page1(props) {
       const nextHandler = (event)=>{
         event.preventDefault();
         props.setData(data);
-      console.log("onsubmit");
       navigate("/page2");
-      // var path = window.location.href+"1";
-      // window.location.href = path;
     }
     return (
       <div >
