@@ -11,15 +11,15 @@ function Signup(props) {
 
             <br/><hr/>
             <div className="my-6">
-                <lable>user-id :{" "}</lable>
+                user-id :{" "}
                 <input type="text" name = "userId"/>
             </div>
             <div className="my-3">
-                <label>Password :{" "}</label>
+                Password :{" "}
                 <input type="password" name="password"/>
             </div>
             <div className="my-3">
-                <label>Confirm Password :{" "}</label>
+                Confirm Password :{" "}
                 <input type="password" name="cnfPassword"/>
             </div>
             <button type="submit" className="btn btn-primary mt-3" > Sign up</button>
