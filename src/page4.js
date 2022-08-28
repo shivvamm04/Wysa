@@ -28,7 +28,7 @@ function Page4(props) {
         <button className="btn" onClick={buttonHandler} value="7 hrs" style={{backgroundColor:'blue'}}>7 hrs</button><br/>
         <button className="btn" onClick={buttonHandler} value="8 hrs" style={{backgroundColor:'blue'}}>8 hrs</button><br/>
         <button className="btn" onClick={buttonHandler} value="9 hrs" style={{backgroundColor:'blue'}}>9 hrs</button><br/>
-        <button className="btn go" onClick={nextHandler} disabled={!go}>Data recieved</button><br/>
+        <button className="btn go" onClick={nextHandler} disabled={!go}>Go</button><br/>
       </div>
     );
   }
