@@ -3,6 +3,8 @@ import React,{Component} from "react";
 import Signup from './Signup';  
 import Login from "./login";
 
+
+
 class Authentic extends Component{
       constructor(props) {
         super(props)
@@ -44,15 +46,14 @@ loginHandler = (event) =>{
       this.setState({msg:"Login Sucessfully", msgtype:0});
       event.target.userId.value = null;
       event.target.password.value = null;
-      var path = window.location.href+"page1"
-      window.location.href=path; 
+      this.props.auth(true);
     }else{
       this.setState({msg:"Invalid", msgtype:1});
   }
 }
       render(){
         return(
-          <div className="App">
+          <div >
             {this.state.page ? <Signup switch = {this.pageSwitchHandler} rtr = {this.ragisterHandler} message = {this.state.msg} messageType = {this.state.msgtype}/> : 
             <Login switch = {this.pageSwitchHandler} login = {this.loginHandler} message = {this.state.msg} messageType = {this.state.msgtype}/>}
           </div>

@@ -1,28 +1,36 @@
 import './App.css';
 import React,{useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+
 
 function Page1(props) {
     const[data,setData] = useState("");
     const[go,setGo] = useState(false);
+     const navigate = useNavigate();
     
     const buttonHandler = (e)=>{
         let d = e.target.value;
-        props.setData(data);
         setData(d);
         setGo(true);    
-    }
-
-    const nextHandler = ()=>{
-      var path = window.location.href+"1";
-      window.location.href = path;
+      }
+      
+      const nextHandler = (event)=>{
+        event.preventDefault();
+        props.setData(data);
+      console.log("onsubmit");
+      navigate("/page2");
+      // var path = window.location.href+"1";
+      // window.location.href = path;
     }
     return (
-      <div className="App">
-        <h4>That's Great goal. How long have you been struggling with your sleep ? {data}</h4>
-        <button className="btn" onClick={buttonHandler} value="op1" style={{backgroundColor:'blue'}}>Option 1</button><br/>
-        <button className="btn" onClick={buttonHandler} value="op2" style={{backgroundColor:'blue'}}>Option 2</button><br/>
-        <button className="btn" onClick={buttonHandler} value="op3" style={{backgroundColor:'blue'}}>Option 3</button><br/>
-        <button className="btn go" onClick={nextHandler} disabled={!go}>Go</button><br/>
+      <div >
+        <h4>That's Great goal. How long have you been struggling with your sleep ? </h4>
+        <form action="/page2" onSubmit={nextHandler} method="post">
+          <button className="btn" onClick={buttonHandler} value="Less than 2 weeks" type="button" style={{backgroundColor:'blue'}}>Less than 2 weeks</button><br/>
+          <button className="btn" onClick={buttonHandler} value="2-8 weeks" type="button" style={{backgroundColor:'blue'}}>2 to 8 weeks</button><br/>
+          <button className="btn" onClick={buttonHandler} value="More than 8 weeks" type="button" style={{backgroundColor:'blue'}}>More then 8 weeks</button><br/>
+          <button className="btn go" type="submit" disabled={!go}>Go</button><br/>
+        </form>
       </div>
     );
   }
